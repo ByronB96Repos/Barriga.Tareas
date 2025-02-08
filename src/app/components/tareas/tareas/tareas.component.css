@@ -1,0 +1,138 @@
+.card-header {
+  background-color: rgb(243, 244, 246);
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.card-body {
+  background-color: rgb(243, 244, 246);
+  padding: 20px;
+}
+
+.titulo {
+  color: rgb(67, 83, 112);
+  font-weight: bold;
+}
+
+.container-white {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.form-select {
+  background-color: rgb(224, 231, 235);
+  color: rgb(147, 164, 194);
+  border: 0px solid #ccc;
+  border-radius: 1px;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  width: 300px;
+  height: 50px; /* Ajusta la altura */
+}
+.same-size {
+  height: 55px; /* Ajusta según necesites */
+  min-width: 50px; /* Para que tengan un ancho mínimo */
+}
+
+.custom-select {
+  flex-grow: 1; /* Para que el select ocupe el espacio restante */
+}
+.btn-nuevo {
+  color: #fff; /* Texto blanco */
+  background-color: #6c757d; /* Gris oscuro */
+  border-color: 1px #6c757d; /* Borde gris oscuro */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el icono dentro del botón */
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-nuevo:hover {
+  background-color: rgb(0, 123, 255);
+  color: white;
+}
+
+.table-responsive {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  color: rgb(67, 83, 112);
+  width: 180px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: inherit;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-edit {
+  color: green;
+  border: 2px solid transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.btn-edit:hover {
+  background-color: rgb(196, 245, 216);
+  border: 1px solid green;
+}
+.btn-delete {
+  color: red;
+  border: 2px solid transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-delete:hover {
+  background-color: rgb(245, 221, 223);
+  border: 1px solid red;
+}
+
+.material-symbols-outlined {
+  font-size: 18px;
+}
+
+.card-footer {
+  background-color: rgb(248, 249, 250);
+  padding: 10px;
+  font-size: 14px;
+  color: rgb(67, 83, 112);
+}
+
+table tr:hover:not(:has(th)) {
+  background-color: rgb(240, 245, 255);
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+}

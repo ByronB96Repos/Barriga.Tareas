@@ -1,1 +1,69 @@
-<p>tarea-create-modal works!</p>
+<mat-dialog-content>
+  <div class="modal-header">
+    <h2>Registrar Tarea</h2>
+    <button mat-icon-button (click)="cancelar()">
+      <span class="material-symbols-outlined"> close </span>
+    </button>
+  </div>
+
+  <form (submit)="registrar()">
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-column">
+          <label for="nombre"><strong>Tarea:</strong></label>
+          <input
+            type="text"
+            id="nombre"
+            [(ngModel)]="tarea.nombre"
+            name="nombre"
+            required
+          />
+        </div>
+        <div class="form-column"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-column">
+          <label for="descripcion"><strong>Descripcion:</strong></label>
+          <input
+            type="text"
+            id="descripcion"
+            [(ngModel)]="tarea.descripcion"
+            name="descripcion"
+            required
+          />
+        </div>
+        <div class="form-column">
+          <label for="estado"><strong>Estado:</strong></label>
+          <input
+            type="text"
+            id="estado"
+            name="estado"
+            value="Incompleto"
+            disabled
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-column">
+          <label for="Observacion"><strong>Observacion:</strong></label>
+          <input
+            type="text"
+            id="observacion"
+            [(ngModel)]="tarea.observacion"
+            name="observacion"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" style="border: 1px">
+        Registrar
+      </button>
+      <button class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</mat-dialog-content>

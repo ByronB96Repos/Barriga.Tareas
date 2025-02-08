@@ -13,7 +13,7 @@ export class DashboardComponent {
   constructor(private tareasService: TareaService, private router: Router) {}
 
   ngOnInit() {
-    console.log(localStorage.getItem('token'));
-    this.tareasService.getTarea();
+    //console.log(localStorage.getItem('token'));
+    this.tareasService.getTareas();
   }
 }

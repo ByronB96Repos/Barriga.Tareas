@@ -1,30 +1,31 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tarea } from '../models/tarea';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TareaService {
+  private apiUrl = `${environment.apiUrl}Tareas/`;
+
   constructor(private http: HttpClient) {}
 
-  getTarea() {
-    if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('token'); // Obtén el token desde localStorage
+  getTareas(): Observable<Tarea[]> {
+    return this.http.get<Tarea[]>(this.apiUrl);
+  }
 
-      if (token) {
-        const headers = new HttpHeaders({
-          Authorization: `Bearer ${token}`, // Agrega el token al encabezado
-        });
-
-        return this.http.get('http://localhost:5067/api/Tareas').subscribe({
-          next: (response) => console.log('Respuesta:', response),
-          error: (err) => console.error('Error:', err),
-        });
-      } else {
-        return console.error('Token no encontrado');
-      }
-    } else {
-      console.error('localStorage no está disponible');
-    }
+  getTareasUsuario(id: number): Observable<Tarea[]> {
+    return this.http.get<Tarea[]>(`${this.apiUrl}T/${id}`);
+  }
+  deleteTarea(id: number): Observable<{}> {
+    return this.http.delete(`${this.apiUrl}${id}/`);
+  }
+  createTarea(tarea: Tarea): Observable<Tarea> {
+    return this.http.post<Tarea>(this.apiUrl, tarea);
+  }
+  getTarea(id: number): Observable<Tarea> {
+    return this.http.get<Tarea>(`${this.apiUrl}${id}/`);
   }
 }
