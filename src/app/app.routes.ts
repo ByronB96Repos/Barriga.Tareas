@@ -6,4 +6,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./components/usuario/auth.router').then((m) => m.AUTH_ROUTES),
   },
+  {
+    path: 'tareas',
+    loadChildren: () =>
+      import('./components/tareas/tareas.router').then((m) => m.TAREAS_ROUTES),
+  },
 ];
