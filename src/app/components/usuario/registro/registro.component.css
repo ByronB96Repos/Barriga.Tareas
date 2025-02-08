@@ -1,0 +1,161 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal (División en 2 columnas) */
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: space-between; /* Separar los dos bloques */
+  overflow: hidden; /* Evitar desbordamientos */
+}
+
+/* Sección del formulario */
+.login-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: #f4f4f4;
+  overflow-y: auto;
+}
+
+/* Tarjeta del formulario */
+.login-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 8px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow-y: auto;
+}
+
+/* Título */
+.title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo para las filas del formulario */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para los campos de formulario en 2 columnas */
+mat-form-field.half-width {
+  width: 48%; /* Ajusta el ancho para 2 columnas */
+}
+
+/* Campos de entrada */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Botón Login */
+.login-button {
+  width: 100%;
+  padding: 8px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #303f9f;
+}
+
+/* Sección Azul con Logo */
+.login-banner {
+  width: 40%; /* Reducir el tamaño del banner */
+  background: #3f51b5;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10rem;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+.login-banner h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Media Queries para pantallas grandes */
+@media (min-width: 768px) {
+  .login-wrapper {
+    flex-direction: row; /* En pantallas grandes, mostrar las 2 columnas */
+  }
+
+  /* Sección del formulario */
+  .login-container {
+    width: 60%; /* Formulario ocupa el 60% */
+  }
+
+  /* Banner */
+  .login-banner {
+    display: block; /* Mostrar el banner en pantallas grandes */
+    width: 40%; /* Banner ocupa el 40% */
+  }
+
+  /* Ajuste para filas */
+  .form-row {
+    flex-wrap: nowrap; /* No permitir que las filas se ajusten */
+  }
+
+  /* Ajuste de los campos para 2 columnas */
+  .half-width {
+    width: 48%; /* Cada campo ocupa 48% del ancho */
+  }
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  /* El banner se oculta en pantallas pequeñas */
+  .login-banner {
+    display: none;
+  }
+
+  /* Formulario ocupa el 100% del ancho */
+  .login-container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  /* En pantallas pequeñas, los campos deben ocupar todo el ancho */
+  mat-form-field {
+    width: 100%;
+  }
+
+  /* Asegurarse de que las filas de formularios se apilen en una sola columna */
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

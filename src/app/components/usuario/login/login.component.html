@@ -1,0 +1,71 @@
+<div class="login-wrapper">
+  <!-- Sección del Formulario -->
+  <div class="login-container">
+    <mat-card class="login-card">
+      <mat-card-title class="title">Bienvenido!</mat-card-title>
+      <mat-card-content>
+        <!-- Botón de Google -->
+        <button mat-raised-button class="google-login" (click)="registrar()">
+          Registrate
+        </button>
+        <div class="divider">
+          <span>o</span>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <!-- Campo Email -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" />
+            <mat-error
+              *ngIf="
+                loginForm.get('email')?.invalid &&
+                loginForm.get('email')?.touched
+              "
+            >
+              Ingrese un email válido
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Campo Contraseña -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="passwordHash" type="password" />
+            <mat-error
+              *ngIf="
+                loginForm.get('passwordHash')?.invalid &&
+                loginForm.get('passwordHash')?.touched
+              "
+            >
+              La contraseña debe tener al menos 6 caracteres
+            </mat-error>
+          </mat-form-field>
+          <br /><br />
+          <div class="actions">
+            <button
+              mat-raised-button
+              color="primary"
+              class="login-button"
+              [disabled]="isLoading"
+            >
+              <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+              <span *ngIf="!isLoading">Ingresar</span>
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <footer class="footer">© 2025 - Byron Barriga</footer>
+  </div>
+
+  <!-- Sección del Logo y Fondo Azul -->
+  <div class="login-banner">
+    <img
+      src="assets/images/angular.png"
+      alt="Angular Material Logo"
+      class="logo"
+    />
+    <h1>Angular Material</h1>
+  </div>
+</div>

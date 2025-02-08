@@ -1,0 +1,192 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal (División en 2 columnas) */
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sección del formulario */
+.login-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #f4f4f4;
+}
+
+/* Tarjeta del formulario */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 8px;
+}
+
+/* Título */
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Botón de Google */
+.google-login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.google-login:hover {
+  background: #f0f0f0;
+}
+
+.google-login img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+/* Línea divisora */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+  margin: 0 10px;
+}
+
+/* Campos de entrada */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Acciones (Login + Forgot Password) */
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Botón Login */
+.login-button {
+  width: 120px;
+  padding: 10px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #303f9f;
+}
+
+/* Enlace Olvidaste tu contraseña */
+.forgot-password {
+  font-size: 14px;
+  color: #1976d2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #1258a7;
+}
+
+/* Pie de página */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* Sección Azul con Logo */
+.login-banner {
+  width: 60%;
+  background: #3f51b5;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+.login-banner h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-banner {
+    display: none; /* Oculta la sección azul en móviles */
+  }
+
+  .login-container {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .login-button {
+    width: 100%;
+  }
+}
