@@ -28,4 +28,10 @@ export class TareaService {
   getTarea(id: number): Observable<Tarea> {
     return this.http.get<Tarea>(`${this.apiUrl}${id}/`);
   }
+  updateTarea(id: number, tarea: Tarea): Observable<Tarea> {
+    return this.http.put<Tarea>(`${this.apiUrl}${id}/`, tarea);
+  }
+  marcarTareasComoCompletadas(tareaIds: number[]) {
+    return this.http.patch(this.apiUrl, tareaIds);
+  }
 }

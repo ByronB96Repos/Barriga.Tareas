@@ -11,6 +11,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TareaCreateModalComponent } from '../tarea-create-modal/tarea-create-modal.component';
 import { TareaEditModalComponent } from '../tarea-edit-modal/tarea-edit-modal.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-tareas',
@@ -20,6 +21,7 @@ import { TareaEditModalComponent } from '../tarea-edit-modal/tarea-edit-modal.co
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
+    MatCheckboxModule,
   ],
   templateUrl: './tareas.component.html',
   styleUrl: './tareas.component.css',
@@ -27,11 +29,13 @@ import { TareaEditModalComponent } from '../tarea-edit-modal/tarea-edit-modal.co
 export class TareasComponent implements OnInit {
   usuarioId: number | null = null;
   tareas: Tarea[] = [];
+  checked = true;
   displayedColumns: string[] = [
     'id',
     'nombre',
     'descripcion',
     'estado',
+    'confirmacion',
     'acciones',
   ];
   estadoSeleccionado = 'todas';
@@ -118,6 +122,23 @@ export class TareasComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('El modal se cerró', result);
+    });
+  }
+
+  marcarComoCompletada(tarea: Tarea): void {
+    if (tarea.estado === 'Completada') {
+      tarea.estado = 'Incompleta'; // Alternar estado si quieres permitir desmarcar
+    } else {
+      tarea.estado = 'Completada';
+    }
+    const tareaId = tarea.id || 0; // Si id es undefined, asigna 0
+    //console.log(tareaId);
+
+    // Llamar al servicio para actualizar el estado en el backend
+    this.tareasService.marcarTareasComoCompletadas([tareaId]).subscribe({
+      next: () =>
+        console.log(`Tarea ${tarea.id} actualizada a ${tarea.estado}`),
+      error: (error) => console.error('Error al actualizar la tarea:', error),
     });
   }
 }

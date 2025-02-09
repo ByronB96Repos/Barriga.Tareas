@@ -64,6 +64,18 @@
                 </td>
               </ng-container>
 
+              <ng-container matColumnDef="confirmacion">
+                <th mat-header-cell *matHeaderCellDef>
+                  <strong>Confirmación</strong>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                  <mat-checkbox
+                    [checked]="element.estado === 'Completada'"
+                    (change)="marcarComoCompletada(element)"
+                  >
+                  </mat-checkbox>
+                </td>
+              </ng-container>
               <ng-container matColumnDef="acciones">
                 <th
                   mat-header-cell

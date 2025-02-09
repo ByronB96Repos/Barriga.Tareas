@@ -41,22 +41,19 @@ export class TareaEditModalComponent {
   }
 
   registrar() {
-    /*const id: number = this.decodeToken();
-    if (id !== -1) {
-      const tareaobj = {
-        nombre: this.tarea.nombre,
-        descripcion: this.tarea.descripcion,
-        observacion: this.tarea.observacion,
-        usuarioId: id,
-      };
-      this.tareaService.createTarea(tareaobj).subscribe((data) => {
-        console.log('Tarea creado', data);
-        this.dialogRef.close();
-        window.location.reload();
-      });
-    } else {
-      console.warn('No se pudo obtener el ID del usuario del token.');
-    }*/
+    this.id = this.data.id;
+    const tareaobj = {
+      id: this.id,
+      nombre: this.tarea.nombre,
+      descripcion: this.tarea.descripcion,
+      observacion: this.tarea.observacion,
+      estado: 'Incompleto',
+    };
+    this.tareaService.updateTarea(this.id, tareaobj).subscribe((data) => {
+      console.log('Tarea Modificado', data);
+      this.dialogRef.close();
+      window.location.reload();
+    });
   }
 
   cancelar(): void {

@@ -5,4 +5,5 @@ export interface Tarea {
   observacion?: string;
   estado?: string;
   usuarioId?: number;
+  confirmada?: boolean;
 }
