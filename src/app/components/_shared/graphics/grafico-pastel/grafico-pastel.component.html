@@ -1,0 +1,15 @@
+<div class="mt-0">
+  <div class="card">
+    <div class="card-header">Total de Tareas: {{ tareas.length }}</div>
+    <div class="card-body">
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>

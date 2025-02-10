@@ -1,0 +1,33 @@
+.container-dash {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: white;
+  height: 100%;
+}
+
+/* Estilo para los gráficos */
+app-grafico,
+app-grafico-pastel {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+/* Estilos para pantallas grandes (PC) */
+@media (min-width: 768px) {
+  app-grafico,
+  app-grafico-pastel {
+    width: 50%; /* Dos gráficos en la misma línea con separación */
+    width: 160vh; /* Establecemos el ancho máximo en 150vh en pantallas grandes */
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+  app-grafico,
+  app-grafico-pastel {
+    width: 100%; /* Los gráficos se apilan en pantallas pequeñas */
+  }
+}

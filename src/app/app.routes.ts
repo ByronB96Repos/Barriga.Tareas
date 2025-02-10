@@ -1,6 +1,10 @@
 import { Routes } from '@angular/router';
-
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/login', // Redirige al login si no hay sesión
+    pathMatch: 'full',
+  },
   {
     path: '',
     loadChildren: () =>
