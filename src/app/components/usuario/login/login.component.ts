@@ -64,7 +64,7 @@ export class LoginComponent {
         if (typeof window !== 'undefined' && window.localStorage) {
           localStorage.setItem('token', res.token);
           this.isLoading = true;
-          this.router.navigate(['/tareas/tareas']);
+          this.router.navigate(['/tareas/dashboard']);
         } else {
           setTimeout(() => {
             this.isLoading = false;
