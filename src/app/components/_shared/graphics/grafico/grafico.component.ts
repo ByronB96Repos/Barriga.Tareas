@@ -97,7 +97,7 @@ export class GraficoComponent {
         },
       ],
       xaxis: {
-        categories: ['Completas', 'Incompletas'],
+        categories: ['Completas', 'Pendientes'],
       },
       fill: {
         opacity: 1,
@@ -120,7 +120,7 @@ export class GraficoComponent {
           (tarea: any) => tarea.estado === 'Completada'
         );
         const tareasIncompletas = this.tareas.filter(
-          (tarea: any) => tarea.estado === 'Incompleto'
+          (tarea: any) => tarea.estado === 'Pendiente'
         );
 
         // Actualiza la propiedad `series` con los nuevos datos

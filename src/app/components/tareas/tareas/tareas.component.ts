@@ -127,14 +127,13 @@ export class TareasComponent implements OnInit {
 
   marcarComoCompletada(tarea: Tarea): void {
     if (tarea.estado === 'Completada') {
-      tarea.estado = 'Incompleta'; // Alternar estado si quieres permitir desmarcar
+      tarea.estado = 'Pendiente';
     } else {
       tarea.estado = 'Completada';
     }
     const tareaId = tarea.id || 0; // Si id es undefined, asigna 0
     //console.log(tareaId);
 
-    // Llamar al servicio para actualizar el estado en el backend
     this.tareasService.marcarTareasComoCompletadas([tareaId]).subscribe({
       next: () =>
         console.log(`Tarea ${tarea.id} actualizada a ${tarea.estado}`),

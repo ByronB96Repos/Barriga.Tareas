@@ -41,7 +41,7 @@ export class GraficoPastelComponent {
         width: 320,
         type: 'pie',
       },
-      labels: ['Completadas', 'Incompletas'],
+      labels: ['Completadas', 'Pendientes'],
       responsive: [
         {
           breakpoint: 480,
@@ -68,7 +68,7 @@ export class GraficoPastelComponent {
           (tarea: any) => tarea.estado === 'Completada'
         );
         const tareasIncompletas = this.tareas.filter(
-          (tarea: any) => tarea.estado === 'Incompleto'
+          (tarea: any) => tarea.estado === 'Pendiente'
         );
 
         // Actualiza la propiedad `series` con los nuevos datos
@@ -77,8 +77,8 @@ export class GraficoPastelComponent {
           tareasIncompletas.length,
         ];
 
-        console.log('Tareas completadas:', tareasCompletadas.length);
-        console.log('Tareas incompletas:', tareasIncompletas.length);
+        //console.log('Tareas completadas:', tareasCompletadas.length);
+        //console.log('Tareas pendientes:', tareasIncompletas.length);
 
         // Detecta cambios para actualizar el gráfico
         this.cdr.detectChanges();

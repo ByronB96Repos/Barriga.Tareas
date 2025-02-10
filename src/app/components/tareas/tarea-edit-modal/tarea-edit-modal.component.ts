@@ -47,7 +47,7 @@ export class TareaEditModalComponent {
       nombre: this.tarea.nombre,
       descripcion: this.tarea.descripcion,
       observacion: this.tarea.observacion,
-      estado: 'Incompleto',
+      estado: 'Pendiente',
     };
     this.tareaService.updateTarea(this.id, tareaobj).subscribe((data) => {
       console.log('Tarea Modificado', data);

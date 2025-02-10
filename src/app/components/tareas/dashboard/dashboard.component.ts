@@ -41,7 +41,7 @@ export class DashboardComponent {
           (tarea: any) => tarea.estado === 'Completada'
         );
         const tareasIncompletas = this.tareas.filter(
-          (tarea: any) => tarea.estado === 'Incompleto'
+          (tarea: any) => tarea.estado === 'Pendiente'
         );
       });
     } else {
